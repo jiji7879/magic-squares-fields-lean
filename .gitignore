@@ -1,0 +1,20 @@
+# Lake dependency checkouts and compiled outputs
+/.lake/
+/build/
+*.olean
+*.ilean
+*.olean.server
+*.olean.private
+*.trace
+# Local editor / operating-system files
+/.vscode/
+/.idea/
+.DS_Store
+Thumbs.db
+*~
+*.swp
+# Local verification logs and Python bytecode
+*.log
+__pycache__/
+*.pyc
+# Keep lake-manifest.json and Lean certificate source data tracked.
