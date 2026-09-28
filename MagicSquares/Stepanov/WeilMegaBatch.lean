@@ -1,0 +1,13 @@
+import MagicSquares.Stepanov.Lemma646.DomainInvariant
+import MagicSquares.Stepanov.Lemma646.DomainOrbit
+import MagicSquares.Stepanov.Lemma646.FirstBlockPolynomial
+import MagicSquares.Stepanov.Lemma646.FirstBlockOrbit
+import MagicSquares.Stepanov.Lemma646.CoefficientDegree
+import MagicSquares.Stepanov.Lemma646.QuotientOrbit
+import MagicSquares.Stepanov.Lemma646.KummerRootInterface
+import MagicSquares.Stepanov.Lemma646.KummerGaussBridge
+import MagicSquares.Stepanov.Lemma646.QuotientReduction
+import MagicSquares.Stepanov.Lemma646.FirstBlockIndependence
+import MagicSquares.Stepanov.Lemma646.Complete
+import MagicSquares.Weil.SharpInterface
+import MagicSquares.Weil.StepanovVsSharp
