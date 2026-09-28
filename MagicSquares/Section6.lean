@@ -1,0 +1,2 @@
+import MagicSquares.CenterZero
+import MagicSquares.CharacteristicTwo
