@@ -1,0 +1,12 @@
+import MagicSquares.Section6
+import MagicSquares.Stepanov
+import MagicSquares.CenterOne
+import MagicSquares.FiniteExceptions
+import MagicSquares.CenterZero.Cubes
+import MagicSquares.Characters.SignCriterion
+import MagicSquares.NormalizedSearch
+import MagicSquares.SmallFieldObstructions
+import MagicSquares.SquareQ1Classification
+import MagicSquares.CubeClassification
+import MagicSquares.SquareExceptions
+import MagicSquares.SquareClassification

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this formalization by David Lai and identify the commit used."
+type: software
+license: MIT
+title: "Lean formalization of magic squares of powers over finite fields"
+authors:
+  - family-names: Lai
+    given-names: David
+abstract: >-
+  Lean formalization of square- and cube-Parker classifications, the
+  characteristic-two obstruction, and general-power existence and finiteness
+  results over finite fields.

@@ -1,0 +1,11 @@
+name = "magic-square-finite-fields"
+version = "0.1.0"
+defaultTargets = ["MagicSquares"]
+
+[[lean_lib]]
+name = "MagicSquares"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.32.1"
