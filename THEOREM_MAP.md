@@ -1,6 +1,6 @@
 # Paper-to-Lean theorem map
 
-This guide identifies the main entry points in the formalization source tree. Paper numbering follows the numbering recorded in the source docstrings. It is a map of the principal results and supporting arguments, not an assertion that every sentence or variant in the paper or LN97 has a separate formal counterpart.
+This guide identifies the main entry points in the formalization source tree. Paper numbering follows the revised paper after merging its former Sections 3 and 4. Lean source docstrings may retain the previous numbering; declaration names are unchanged. It is a map of the principal results and supporting arguments, not an assertion that every sentence or variant in the paper or LN97 has a separate formal counterpart.
 
 See [VERIFICATION.md](VERIFICATION.md) for build evidence and pending checks.
 
@@ -8,16 +8,16 @@ All paths below are relative to the project root. Names are fully qualified. Imp
 
 | Paper result or role | Lean declaration | Source | Scope |
 | --- | --- | --- | --- |
-| Theorem 9.1: odd-field square classification | `MagicSquares.squareParker_iff_of_char_ne_two` | [Source](MagicSquares/SquareClassification.lean) | Odd characteristic; equivalence with the complete 16-order exception list. |
+| Theorem 8.1: odd-field square classification | `MagicSquares.squareParker_iff_of_char_ne_two` | [Source](MagicSquares/SquareClassification.lean) | Odd characteristic; equivalence with the complete 16-order exception list. |
 | All finite fields: square classification | `MagicSquares.squareParker_iff` | [Source](MagicSquares/SquareClassification.lean) | Characteristic two, or membership in the same exception list. |
-| Theorem 13.1: odd-field cube classification | `MagicSquares.cubeParker_iff_of_char_ne_two` | [Source](MagicSquares/CubeClassification.lean) | Odd characteristic; equivalence with the complete 14-order exception list. |
-| Section 16: characteristic-two obstruction | `MagicSquares.isNParker_of_charTwo` | [Source](MagicSquares/CharacteristicTwo.lean) | Any commutative ring of characteristic two, every exponent. |
+| Theorem 12.1: odd-field cube classification | `MagicSquares.cubeParker_iff_of_char_ne_two` | [Source](MagicSquares/CubeClassification.lean) | Odd characteristic; equivalence with the complete 14-order exception list. |
+| Section 15: characteristic-two obstruction | `MagicSquares.isNParker_of_charTwo` | [Source](MagicSquares/CharacteristicTwo.lean) | Any commutative ring of characteristic two, every exponent. |
 | Square existence threshold | `MagicSquares.Square3.exists_centerOne_magic_of_squares_of_card_ge_553736` | [Source](MagicSquares/CenterOne/SquareCount.lean) | Odd finite field; q ≥ 553736. |
 | Cube existence threshold | `MagicSquares.exists_centerZero_magic_of_cubes_of_card_ge_1037` | [Source](MagicSquares/CenterZero/Cubes.lean) | Odd finite field; q ≥ 1037. |
-| Lemma 12.1: sign criterion | `MagicSquares.isNthPower_neg_one_iff_powerIndex_dvd_half` | [Source](MagicSquares/Characters/SignCriterion.lean) | n > 0, odd characteristic; −1 is an n-th power iff gcd(n,q−1) divides (q−1)/2. |
-| Theorem 12.1: center-zero powers | `MagicSquares.exists_centerZero_magic_of_powers_of_bound` | [Source](MagicSquares/CenterZero/PowerExistence.lean) | n > 0, odd characteristic, sign condition and the exact numerical inequality in the statement. |
-| Theorem 14.1: center-one powers | `MagicSquares.Square3.exists_centerOne_magic_of_powers_of_bound` | [Source](MagicSquares/CenterOne/PowerCount.lean) | n > 0, odd characteristic, q > 7 and the exact numerical inequality in the statement. |
-| Theorem 15.1: finite exceptions | `MagicSquares.finite_nParker_cardinalities` | [Source](MagicSquares/FiniteExceptions.lean) | For each positive n, finitely many exceptional odd-field cardinalities. |
+| Lemma 11.1: sign criterion | `MagicSquares.isNthPower_neg_one_iff_powerIndex_dvd_half` | [Source](MagicSquares/Characters/SignCriterion.lean) | n > 0, odd characteristic; −1 is an n-th power iff gcd(n,q−1) divides (q−1)/2. |
+| Theorem 11.1: center-zero powers | `MagicSquares.exists_centerZero_magic_of_powers_of_bound` | [Source](MagicSquares/CenterZero/PowerExistence.lean) | n > 0, odd characteristic, sign condition and the exact numerical inequality in the statement. |
+| Theorem 13.1: center-one powers | `MagicSquares.Square3.exists_centerOne_magic_of_powers_of_bound` | [Source](MagicSquares/CenterOne/PowerCount.lean) | n > 0, odd characteristic, q > 7 and the exact numerical inequality in the statement. |
+| Theorem 14.1: finite exceptions | `MagicSquares.finite_nParker_cardinalities` | [Source](MagicSquares/FiniteExceptions.lean) | For each positive n, finitely many exceptional odd-field cardinalities. |
 | Explicit general-power bound | `MagicSquares.Square3.exists_magic_of_powers_of_card_gt_bound` | [Source](MagicSquares/FiniteExceptions.lean) | n > 0, odd characteristic; q > (10 n^8 + 10)^2. |
 | Algorithm 1: power membership | `MagicSquares.isNthPower_iff_zero_or_pow_eq_one` | [Source](MagicSquares/Characters/PowerTest.lean) | n > 0; zero, or the stated multiplicative exponent test. |
 | Normalized search completeness | `MagicSquares.exists_magic_of_powers_iff_normalized` | [Source](MagicSquares/NormalizedSearch.lean) | Existence iff one of the normalized center-zero/center-one searches has a witness. |
@@ -50,4 +50,4 @@ Names beginning with `Has...Bound` describe mathematical propositions used betwe
 
 ## General powers: scope of completion
 
-Theorems 12.1 and 14.1 provide sufficient numerical conditions; Theorem 15.1 proves an explicit upper bound on exceptional odd-field sizes. These results apply to arbitrary positive n. The complete explicit exception tables in this release are for n = 2 and n = 3.
+Theorems 11.1 and 13.1 provide sufficient numerical conditions; Theorem 14.1 proves finiteness of exceptional odd-field cardinalities. The Lean development additionally supplies the explicit uniform bound listed above. These results apply to arbitrary positive n. The complete explicit exception tables in this release are for n = 2 and n = 3.

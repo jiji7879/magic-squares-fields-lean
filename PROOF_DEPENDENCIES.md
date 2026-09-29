@@ -6,7 +6,7 @@ Paths below are relative to the project root. The LN97 numbering follows the ear
 
 **Book reference (LN97).** Rudolf Lidl and Harald Niederreiter. *Finite Fields*. Volume 20 of *Encyclopedia of Mathematics and Its Applications*. 2nd edition. Cambridge University Press, 1997.
 
-Throughout this guide, **LN97** refers to this book. Numbers explicitly labeled LN97 (such as Theorem 5.41 or Lemma 6.55) are the book's theorem and lemma numbers; references labeled “the paper” refer to the magic-squares paper.
+Throughout this guide, **LN97** refers to this book. Numbers explicitly labeled LN97 (such as Theorem 5.41 or Lemma 6.55) are the book's theorem and lemma numbers; references labeled “the paper” refer to the revised magic-squares paper after merging its former Sections 3 and 4. Lean source docstrings may retain the previous numbering; the declarations and proofs are unchanged.
 
 ## 1. The endpoints: what the project proves
 
@@ -80,7 +80,7 @@ This section groups the book-derived analytic and algebraic ingredients together
 
 ### 2.1. The sharp bound and L-function argument
 
-#### The paper's Theorem 5.1 / the role of LN97 Theorem 5.41
+#### The paper's Theorem 4.1 / the role of LN97 Theorem 5.41
 
 For a nontrivial multiplicative character `χ` and a product with `r` distinct roots,
 
@@ -113,7 +113,7 @@ provided all listed exponents are positive and at least one is not divisible by 
 - `sharp_multiplicative_weil`
 - `sharp_power_multiplicative_weil`
 
-These interfaces are discharged by proofs. They are not additional axioms that the final classification assumes. The repeated-root version is essential for general powers; the squarefree version alone would not cover the character expansions in Sections 12 and 14 of the paper.
+These interfaces are discharged by proofs. They are not additional axioms that the final classification assumes. The repeated-root version is essential for general powers; the squarefree version alone would not cover the character expansions in Sections 11 and 13 of the paper.
 
 #### The role of LN97 Theorem 5.39: the power-sum representation
 
@@ -248,7 +248,7 @@ Related bridges:
 - `MagicSquares/Characters/PowerTest.lean`: the executable power test, with its equivalence to the mathematical definition proved.
 - `MagicSquares/NormalizedSearch.lean`: correctness of reducing existence to the normalized search families.
 
-### Center zero: the paper's Theorem 12.1
+### Center zero: the paper's Theorem 11.1
 
 **Uses:**
 
@@ -269,7 +269,7 @@ If it holds, some parameter remains outside the bad set and gives nine distinct 
 
 Numerical specialization in `MagicSquares/CenterZero/Cubes.lean` yields existence for cubes when `q ≥ 1037` in odd characteristic. `PowerBounds.lean` gives the uniform odd-exponent bound.
 
-### Center one: the paper's Theorem 14.1
+### Center one: the paper's Theorem 13.1
 
 **Uses:**
 
@@ -288,7 +288,7 @@ Numerical specialization in `MagicSquares/CenterZero/Cubes.lean` yields existenc
 
 The square-specific argument in `MagicSquares/CenterOne/SquareCount.lean` gives the cutoff 553736 used in the complete square classification.
 
-### Finiteness: the paper's Theorem 15.1
+### Finiteness: the paper's Theorem 14.1
 
 **Uses:** the center-one existence inequality, the estimate `d ≤ n`, and elementary bounds on its constants.
 
@@ -363,3 +363,7 @@ lake env lean CheckRelease.lean
 ```
 
 These checks are more informative than comparing build-job counts, which can vary with the source set and build configuration.
+
+## Paper consistency review
+
+The principal classifications, hypotheses, and counting constants were compared with the Lean sources at commit `93efc5597843c9da7e5ce26176f90a40ea7508d6`. [CI run 36498472790](https://github.com/jiji7879/magic-squares-fields-lean/actions/runs/36498472790) passed the build and six-endpoint axiom audit. The full three-parameter asymptotic count discussed as future work in the paper is not asserted as a result formalized here.
