@@ -1,6 +1,6 @@
 # Verification record
 
-Prepared for David Lai on 2026-09-28 (America/Chicago). No repository has been published. David Lai approved MIT licensing on 2026-09-28; the license and software citation metadata have been updated.
+Prepared for David Lai on 2026-09-28 (America/Chicago). The formalization is publicly available at [jiji7879/magic-squares-fields-lean](https://github.com/jiji7879/magic-squares-fields-lean). David Lai approved MIT licensing on 2026-09-28; the license and software citation metadata have been updated.
 
 ## Evidence and limits
 
@@ -12,10 +12,10 @@ Prepared for David Lai on 2026-09-28 (America/Chicago). No repository has been p
 | Placeholder / custom-axiom source scan | Passed during preparation | No code tokens `sorry`, `admit`, `axiom`, `native_decide`, `implemented_by`, or `unsafe` in the project sources, ignoring comments and strings. This is a static hygiene check, not a Lean parser or a transitive axiom computation. |
 | Project import resolution / cycles | Passed during preparation | All project imports resolve; no import cycles among 332 source modules. |
 | Root import coverage | Checked during preparation | 328 modules reachable; four import-only compatibility modules are built separately in CI. |
-| Repository-support files | Basic checks passed | Workflow and citation YAML parsed; local Markdown links checked; axiom parser exercised against accepted, rejected and missing reports. Actual workflow execution remains pending. |
+| Repository-support files | Basic checks passed | Workflow and citation YAML parsed; local Markdown links checked; axiom parser exercised against accepted, rejected and missing reports. GitHub workflow execution has started; a successful end-to-end result is not yet recorded here. |
 | Fresh local compilation | Environment-blocked | The pinned toolchain was installed. `lake --version` reported Lean 4.32.1. The compiler itself failed with `error: failed to locate application`, including with an explicit installation root. This happened before elaborating any project proof. |
 | Fresh endpoint axiom audit | Pending | Compiler cannot run here. No current compiler-derived endpoint axiom set is asserted. |
-| GitHub Actions run | Pending | Workflow is prepared but has not run on GitHub. |
+| GitHub Actions run | In progress when checked on 2026-09-28 | [Run 36498472790](https://github.com/jiji7879/magic-squares-fields-lean/actions/runs/36498472790), commit `93efc5597843c9da7e5ce26176f90a40ea7508d6`. The earlier run 36498241220 failed. No successful CI result is asserted in this record. |
 
 The reported successful build supersedes the old dependency-guide statement that the consolidation still awaited a user build. It does not replace a fresh endpoint axiom audit.
 
@@ -34,7 +34,7 @@ Earlier endpoint audits were reported to contain only `propext`, `Classical.choi
 
 Run `lake build`, then `lake env lean scripts/Audit.lean` to print the actual transitive axioms. `python3 scripts/check_axioms.py` (Windows: `py -3 scripts/check_axioms.py`) runs that command and checks that each of the six reports is present and contains no axioms outside the permitted set. `sorryAx`, `Lean.ofReduceBool`, or any other unlisted axiom will fail the check. Reports with no axioms are also accepted. If Lean changes the output format, the script fails on missing reports rather than silently passing.
 
-The new audit driver and workflow have not been compiled/executed end to end in this environment. Successful parser fixtures do not establish theorem verification.
+The audit driver and workflow have not been verified end to end in the preparation environment. GitHub execution is tracked separately above. Successful parser fixtures do not establish theorem verification.
 
 ## Changes in this preparation
 
@@ -43,4 +43,8 @@ The new audit driver and workflow have not been compiled/executed end to end in 
 - Replaced the stale consolidation-build note with the user-reported successful result and this explicit audit status.
 - Added README, reproducibility notes, this record, software citation metadata, source hashes, Git exclusions/line-ending rules, source/audit scripts, and a GitHub Actions workflow.
 - Kept generated Lean certificates committed. No generator or missing paper metadata was invented.
-- Added the MIT license after David Lai explicitly approved it. No GitHub remote, commit, release tag, or public repository was created.
+- Added the MIT license after David Lai explicitly approved it. The preparation assistant did not publish the package. David subsequently created the public repository and uploaded the files; the repository URL is now included in the citation metadata.
+
+## Updating this record
+
+The CI row is a dated observation, not a live status display. After a run completes, record its final conclusion and tested commit. Mark endpoint audits as passed only after inspecting the successful axiom-check step; retain the actual reports. The earlier source-preservation and static checks describe the prepared source snapshot, not every subsequent GitHub commit.

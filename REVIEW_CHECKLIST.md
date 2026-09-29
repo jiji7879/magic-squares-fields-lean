@@ -1,15 +1,15 @@
-# Review before publishing
+# Repository and release checklist
 
-The working package is prepared for review, not published.
+The formalization is public at [jiji7879/magic-squares-fields-lean](https://github.com/jiji7879/magic-squares-fields-lean). This checklist tracks the remaining verification and release work.
 
 - [x] David approved MIT; `LICENSE`, README scope, and `CITATION.cff` are updated. The paper license remains a separate decision.
-- [ ] Run the build, the four compatibility targets, and the endpoint audit using the README commands; retain the actual axiom output.
-- [ ] Confirm the intended GitHub owner, repository name, and visibility; obtain explicit approval before publishing.
-- [ ] After the first real GitHub Actions run, update `VERIFICATION.md` with the tested commit and result. Do not add a passing badge before then.
-- [ ] Once the repository URL is known, add it to `CITATION.cff`. Add a software release version/date only when an actual release is chosen. The supplied Lake package version `0.1.0` alone is not a published release.
+- [x] David created the public repository as `jiji7879/magic-squares-fields-lean`.
+- [x] The README uses the actual repository URL and clone instructions; `CITATION.cff` includes `repository-code`.
+- [x] GitHub Actions has started running. See [VERIFICATION.md](VERIFICATION.md) for the dated observation and run link.
+- [ ] Confirm a successful build of the root and all four compatibility targets and a successful six-endpoint axiom audit; retain the actual axiom output.
+- [ ] Update `VERIFICATION.md` with the successful run URL, tested commit, and actual endpoint axiom reports. Do not claim a passing result before checking it.
+- [ ] Add a software release version/date only when an actual release is chosen. The Lake package version `0.1.0` alone is not a published release.
 - [ ] If available, add original certificate generators and exact reproduction instructions separately. Their absence does not prevent checking the committed formal proofs.
-- [ ] If the paper is to be linked or cited, supply its actual title and stable link or publication metadata.
+- [ ] Add a stable link to the paper when available. Its title is recorded in the companion computational repository; publication details must be supplied rather than inferred.
 
-Suggested initial commit description: `Prepare finite-field magic-square formalization for review`.
-
-The review archive includes no Git metadata. A local repository can be initialized after review with `git init -b main`, followed by `git add .` and `git diff --cached --stat`. Committing locally does not publish anything; do not add a remote or push until publication has been approved.
+For further updates, work in the existing clone, inspect `git diff`, and commit only the intended files. Do not reinitialize the repository. A local commit remains local until pushed.

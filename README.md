@@ -26,27 +26,30 @@ The supplied configuration is preserved:
 
 Keep all three configuration files. Do not run `lake update` or delete the manifest as part of reproducing this version. Elan selects the compiler from `lean-toolchain`; Lake uses the committed dependency manifest.
 
-From the project directory on Linux/macOS:
+Clone the repository on Linux/macOS, then build:
 
 ```sh
+git clone https://github.com/jiji7879/magic-squares-fields-lean.git
+cd magic-squares-fields-lean
 lake exe cache get
 lake build
 python3 scripts/check_source.py
 python3 scripts/check_axioms.py
 ```
 
-For the review archive on Windows, save `magic-square-lean-github-ready.zip` in Downloads, then use PowerShell:
+On Windows, use PowerShell:
 
 ```powershell
-Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\magic-square-lean-github-ready.zip" -DestinationPath "$env:USERPROFILE\Downloads\magic-square-review"
-Set-Location "$env:USERPROFILE\Downloads\magic-square-review\magic-square-lean"
+Set-Location "$env:USERPROFILE\Downloads"
+git clone https://github.com/jiji7879/magic-squares-fields-lean.git
+Set-Location magic-squares-fields-lean
 lake exe cache get
 lake build
 py -3 scripts/check_source.py
 py -3 scripts/check_axioms.py
 ```
 
-Check that each command succeeds before continuing. If `lake` is unavailable after installing elan, open a new terminal. For dependency-download failures, check network access; these are not proof failures. The first build needs space for the compiler, mathlib cache, and generated files. Build-job counts vary and are not a verification criterion.
+If you already have a clone, enter that folder and skip the cloning commands. Check that each command succeeds before continuing. If `lake` is unavailable after installing elan, open a new terminal. For dependency-download failures, check network access; these are not proof failures. The first build needs space for the compiler, mathlib cache, and generated files. Build-job counts vary and are not a verification criterion.
 
 Four legacy entry points are not imported by the root module. To check all of them too:
 
@@ -86,17 +89,17 @@ The existing mathematical source organization and compatibility imports are reta
 
 ## Verification
 
-David Lai reported that the latest consolidated source builds successfully (`3767 jobs`). The preparation checks and their scope are recorded in [VERIFICATION.md](VERIFICATION.md). A fresh compiler-derived endpoint axiom report is still required before claiming an independently rechecked audit of this prepared repository.
+David Lai reported that the latest consolidated source builds successfully (`3767 jobs`). The preparation checks and their scope are recorded in [VERIFICATION.md](VERIFICATION.md). A fresh compiler-derived endpoint axiom report is still required before claiming an independently rechecked audit of the current repository.
 
-[GitHub Actions](.github/workflows/lean.yml) runs source checks, fetches the mathlib cache, builds the root and compatibility modules, and checks six endpoint axiom reports on pushes, pull requests, and manual dispatch. The audit permits only `propext`, `Classical.choice`, and `Quot.sound`; it rejects missing reports and any other axiom. No successful CI run is claimed before this workflow is actually run.
+[GitHub Actions](.github/workflows/lean.yml) runs source checks, fetches the mathlib cache, builds the root and compatibility modules, and checks six endpoint axiom reports on pushes, pull requests, and manual dispatch. The audit permits only `propext`, `Classical.choice`, and `Quot.sound`; it rejects missing reports and any other axiom. See the [Actions page](https://github.com/jiji7879/magic-squares-fields-lean/actions) for current results and [VERIFICATION.md](VERIFICATION.md) for the recorded evidence. A started workflow does not establish a successful build or axiom audit.
 
 ## Related research repository
 
-The companion [magic_squares_fields repository](https://github.com/jiji7879/magic_squares_fields) contains Python computations and output files for the paper *Magic Squares of Squares over Finite Fields and an Extension to Arbitrary Powers*. This Lean package is prepared for a separate formalization repository; its final GitHub name and URL are not yet selected.
+The companion [magic_squares_fields repository](https://github.com/jiji7879/magic_squares_fields) contains Python computations and output files for the paper *Magic Squares of Squares over Finite Fields and an Extension to Arbitrary Powers*. The formalization is maintained separately in [magic-squares-fields-lean](https://github.com/jiji7879/magic-squares-fields-lean).
 
 ## Citation and references
 
-[CITATION.cff](CITATION.cff) supplies software citation metadata. When citing this formalization, identify David Lai, the title, and the exact commit used. A repository URL, release date, DOI, and paper publication details have intentionally not been invented; add them when available.
+[CITATION.cff](CITATION.cff) supplies software citation metadata. When citing this formalization, identify David Lai, the title, and the exact commit used. The citation metadata includes the repository URL. Add a release version, release date, DOI, and paper publication details only when available.
 
 The book abbreviated **LN97** is:
 

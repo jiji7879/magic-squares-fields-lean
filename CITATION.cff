@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "Please cite this formalization by David Lai and identify the commit used."
 type: software
 license: MIT
+repository-code: "https://github.com/jiji7879/magic-squares-fields-lean"
 title: "Lean formalization of magic squares of powers over finite fields"
 authors:
   - family-names: Lai
